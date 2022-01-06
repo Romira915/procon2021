@@ -2,14 +2,14 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: g++ アクティブなファイルのビルド",
-            "command": "/usr/bin/g++",
+            "label": "C/C++: g++-11 アクティブなファイルのビルド",
+            "command": "/home/linuxbrew/.linuxbrew/bin/g++-11",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.out"
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"

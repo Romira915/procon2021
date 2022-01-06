@@ -4,8 +4,15 @@
 
 using namespace std;
 
-string standard(const uint32_t N, const uint32_t A[], const uint64_t target_size)
+// O(N^2)
+string simple_search(const uint32_t N, const uint32_t A[], const uint64_t sum)
 {
+    if (sum % 10 != 0)
+    {
+        return string("No");
+    }
+    const uint64_t target_size = sum / 10;
+
     uint64_t count_size = 0;
 
     for (int i = 0; i < N; i++)
@@ -37,16 +44,16 @@ int main()
     uint32_t *A = new uint32_t[N * 2];
     uint64_t sum = 0;
 
-    for (int i = 0; i < N; i++)
+    // Step.1 input
+    for (uint32_t i = 0; i < N; i++)
     {
         scanf("%u", &A[i]);
         A[i + N] = A[i];
         sum += A[i];
     }
 
-    const uint64_t target_size = sum / 10;
-
-    string decision = standard(N, A, target_size);
+    // Step.2 Search
+    string decision = simple_search(N, A, sum);
     printf("%s", decision.c_str());
 
     delete[] A;
